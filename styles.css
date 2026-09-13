@@ -152,6 +152,15 @@ main {
   text-underline-offset: 0.25rem;
 }
 
+.site-footer .compute-link span {
+  transition: color 160ms ease;
+}
+
+.site-footer .compute-link:hover span,
+.site-footer .compute-link:focus-visible span {
+  color: #239447;
+}
+
 .footer-links {
   display: flex;
   justify-content: center;

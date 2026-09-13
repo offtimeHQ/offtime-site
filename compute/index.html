@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="See how to run supported workloads on Apple Silicon with the Offtime app." />
+    <title>Get Compute — Offtime.</title>
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../earn/earn.css" />
+    <link rel="stylesheet" href="./compute.css" />
+    <script src="../earn/config.js" defer></script>
+    <script src="../earn/earn.js" defer></script>
+  </head>
+  <body>
+    <header class="earn-header">
+      <a class="earn-header__home" href="../index.html" aria-label="Offtime home">Offtime.</a>
+      <a class="earn-header__back" href="../index.html">Back to home</a>
+    </header>
+
+    <main>
+      <section class="earn-hero compute-hero" aria-labelledby="hero-title">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <p class="eyebrow">Offtime.</p>
+        <h1 id="hero-title">Get the compute<br />you need.</h1>
+        <p class="earn-hero__intro">Run workloads on Apple Silicon without owning the infrastructure.</p>
+        <div class="download-action" data-download-action>
+          <a class="download-button" data-download-link href="#download-unavailable">Get Offtime <span aria-hidden="true">→</span></a>
+          <p class="platform-note">Apple Silicon · macOS</p>
+          <p id="compute-hero-download-status" class="download-status" data-download-status role="status" aria-live="polite"></p>
+          <a class="manual-download" data-manual-download hidden>Didn’t start? Download manually.</a>
+        </div>
+        <p class="ownership-note">Your jobs run in the Offtime app.</p>
+      </section>
+
+      <section class="steps compute-steps" aria-label="Use Offtime compute in four steps">
+        <div class="steps-intro reveal">
+          <p class="eyebrow">Four simple steps</p>
+          <h2>From workload<br />to result.</h2>
+          <p>Open Offtime, choose what you need, and let the app find suitable compute.</p>
+        </div>
+
+        <ol class="steps-grid">
+          <li class="step reveal">
+            <div class="step__heading"><span class="step__number">01</span><p>Download</p><h3>Get Offtime.</h3></div>
+            <div class="step-visual install-window" aria-label="Illustration of moving Offtime.app into the macOS Applications folder">
+              <div class="window-bar"><i></i><i></i><i></i><span>Offtime</span></div>
+              <div class="install-content">
+                <div class="app-file"><span>O</span><strong>Offtime.app</strong></div>
+                <span class="install-arrow" aria-hidden="true">→</span>
+                <div class="applications-folder"><span></span><strong>Applications</strong></div>
+              </div>
+              <p class="mock-caption">Drag to install</p>
+            </div>
+            <p class="step__copy">Download the app and sign in.</p>
+          </li>
+
+          <li class="step reveal">
+            <div class="step__heading"><span class="step__number">02</span><p>Choose what you need</p><h3>Tell us what you’re running.</h3></div>
+            <div class="step-visual workload-window" aria-label="Illustration of supported workloads and compute requirements in the Offtime app">
+              <div class="window-bar"><i></i><i></i><i></i><span>Offtime.</span></div>
+              <div class="workload-content">
+                <h4>What are you running?</h4>
+                <div class="workload-row is-chosen"><span>Transcription</span><b>✓</b></div>
+                <div class="workload-row"><span>OCR</span></div>
+                <div class="workload-row"><span>Embeddings</span></div>
+                <div class="workload-row"><span>Image processing</span></div>
+                <div class="requirements"><span>Apple Silicon</span><span>Memory</span><span>Compute</span></div>
+              </div>
+            </div>
+            <p class="step__copy">Choose a supported workload and the compute you need.</p>
+          </li>
+
+          <li class="step reveal">
+            <div class="step__heading"><span class="step__number">03</span><p>Offtime finds the compute</p><h3>We handle the rest.</h3></div>
+            <div class="step-visual match-window" aria-label="Illustration of Offtime matching a job to suitable Apple Silicon compute">
+              <div class="match-flow">
+                <div class="match-node"><small>Your job</small><strong>Transcription</strong></div><i aria-hidden="true"></i>
+                <div class="match-node match-node--offtime"><small>Matching with</small><strong>Offtime.</strong></div><i aria-hidden="true"></i>
+                <div class="match-node"><small>Available compute</small><strong>M4 Pro · 48 GB</strong></div><i aria-hidden="true"></i>
+                <div class="match-state"><span></span>Running</div>
+              </div>
+            </div>
+            <p class="step__copy">Offtime finds an available Mac that can handle your workload.</p>
+          </li>
+
+          <li class="step reveal">
+            <div class="step__heading"><span class="step__number">04</span><p>Get your result</p><h3>Run it. Get the result.</h3></div>
+            <div class="step-visual result-window" aria-label="Illustration of a workload progressing from running to a completed result">
+              <div class="window-bar"><i></i><i></i><i></i><span>Offtime.</span></div>
+              <div class="result-content">
+                <div class="result-running"><div class="result-state"><span></span><strong>Running</strong></div><h4>M4 Pro · 48 GB</h4><div class="mock-progress"><span></span></div><small>Processing workload</small></div>
+                <div class="result-done"><div class="done-check">✓</div><small>Done</small><h4>Result ready</h4><strong>$0.42</strong><span class="mock-result-button">View result</span></div>
+              </div>
+            </div>
+            <p class="step__copy">Your workload runs on Offtime compute. You only pay for the time you use.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="trust-note compute-trust reveal" aria-labelledby="trust-title">
+        <p class="eyebrow">A clear boundary</p>
+        <h2 id="trust-title">You get compute.<br />Not someone’s Mac.</h2>
+        <p>Offtime never gives you remote access to a provider’s desktop, files, or personal apps.</p>
+      </section>
+
+      <section class="pricing-section reveal" aria-labelledby="pricing-title">
+        <div class="pricing-copy"><p class="eyebrow">Simple usage pricing</p><h2 id="pricing-title">Pay for what you use.</h2><p>Offtime sets the compute rate. Your final charge is based on actual usage.</p></div>
+        <div class="price-example" aria-label="Illustrative pricing example: 30 cents per minute for 17 minutes totals 5 dollars and 10 cents">
+          <div><small>Example rate</small><strong>$0.30 <span>/ min</span></strong></div><span aria-hidden="true">×</span>
+          <div><small>Usage</small><strong>17 <span>min</span></strong></div><span aria-hidden="true">=</span>
+          <div class="price-total"><small>Example total</small><strong>$5.10</strong></div>
+        </div>
+      </section>
+
+      <section class="comparison-section reveal" aria-labelledby="comparison-title">
+        <p class="eyebrow">Less infrastructure</p><h2 id="comparison-title">Get to the work.</h2>
+        <div class="flow-compare">
+          <div><small>Traditional cloud</small><p><span>Provision</span><i>→</i><span>Configure</span><i>→</i><span>Wait</span><i>→</i><span>Pay for infrastructure</span></p></div>
+          <div class="flow-compare__offtime"><small>Offtime</small><p><span>Open</span><i>→</i><span>Choose</span><i>→</i><span>Run</span><i>→</i><span>Done</span></p></div>
+        </div>
+      </section>
+
+      <section class="bottom-cta reveal" aria-labelledby="bottom-title">
+        <div class="bottom-glow" aria-hidden="true"></div><h2 id="bottom-title">Ready to use Offtime?</h2>
+        <div class="download-action" data-download-action>
+          <a class="download-button" data-download-link href="#download-unavailable">Download Offtime <span aria-hidden="true">→</span></a>
+          <p class="platform-note">Apple Silicon · macOS</p>
+          <p id="compute-bottom-download-status" class="download-status" data-download-status role="status" aria-live="polite"></p>
+          <a class="manual-download" data-manual-download hidden>Didn’t start? Download manually.</a>
+        </div>
+        <a class="how-link" href="../earn/">Need to earn instead? <span>Start earning →</span></a>
+      </section>
+    </main>
+  </body>
+</html>
