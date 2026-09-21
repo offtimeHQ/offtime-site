@@ -3,8 +3,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const htmlFiles = ["index.html", "how-it-works.html", "privacy.html", "terms.html", "earn/index.html", "compute/index.html"];
-const cssFiles = ["styles.css", "how-it-works.css", "earn/earn.css", "compute/compute.css"];
+const htmlFiles = ["index.html", "how-it-works.html", "privacy.html", "terms.html", "earn/index.html", "compute/index.html", "auth/index.html"];
+const cssFiles = ["styles.css", "how-it-works.css", "earn/earn.css", "compute/compute.css", "auth/auth.css"];
 const errors = [];
 
 for (const file of htmlFiles) {
@@ -14,7 +14,9 @@ for (const file of htmlFiles) {
     if (/^(?:https?:|mailto:|tel:|#)/.test(link)) continue;
     const cleanPath = link.split(/[?#]/)[0];
     if (!cleanPath) continue;
-    const target = path.resolve(path.dirname(path.join(root, file)), cleanPath);
+    const target = cleanPath.startsWith("/")
+      ? path.join(root, cleanPath.slice(1))
+      : path.resolve(path.dirname(path.join(root, file)), cleanPath);
     try {
       await access(target);
     } catch {

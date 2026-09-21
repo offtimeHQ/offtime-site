@@ -1,0 +1,1 @@
+window.OFFTIME_AUTH_CONFIG = { apiUrl: "" };

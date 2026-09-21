@@ -1,0 +1,25 @@
+:root { color: #171714; background: #faf8f3; font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif; }
+* { box-sizing: border-box; }
+body { min-height: 100vh; margin: 0; background: radial-gradient(circle at 50% 15%, #e7f3ff 0, transparent 34rem), #faf8f3; }
+.auth-shell { min-height: 100vh; display: grid; place-items: center; padding: 5.5rem 1.25rem 2rem; position: relative; }
+.logo { position: absolute; top: 2rem; left: 2rem; color: inherit; font-size: 1.7rem; letter-spacing: -.04em; text-decoration: none; }
+.auth-card { width: min(100%, 28rem); padding: clamp(1.5rem, 5vw, 2.5rem); border: 1px solid rgb(23 23 20 / 10%); border-radius: 1.5rem; background: rgb(255 255 255 / 88%); box-shadow: 0 1.5rem 5rem rgb(35 75 110 / 10%); backdrop-filter: blur(16px); }
+.eyebrow { margin: 0 0 .65rem; color: #3476bd; font-size: .72rem; letter-spacing: .13em; text-transform: uppercase; }
+h1 { margin: 0; font-size: clamp(2.2rem, 7vw, 3.2rem); font-weight: 400; letter-spacing: -.045em; }
+.intro { margin: .75rem 0 1.7rem; color: rgb(23 23 20 / 60%); line-height: 1.5; }
+.tabs { display: grid; grid-template-columns: 1fr 1fr; gap: .3rem; margin-bottom: 1.5rem; padding: .3rem; border-radius: .85rem; background: rgb(23 23 20 / 5%); }
+.tabs button { min-height: 2.6rem; border: 0; border-radius: .65rem; color: rgb(23 23 20 / 58%); background: transparent; font: inherit; cursor: pointer; }
+.tabs button[aria-selected="true"] { color: #171714; background: #fff; box-shadow: 0 .2rem .8rem rgb(23 23 20 / 8%); }
+form { display: grid; }
+label { margin: 0 0 .45rem; font-size: .82rem; }
+input { width: 100%; height: 3.25rem; margin-bottom: 1rem; padding: 0 1rem; border: 1px solid rgb(23 23 20 / 18%); border-radius: .8rem; color: inherit; background: #fff; font: inherit; }
+input:focus { outline: 2px solid #68a9ed; outline-offset: 1px; border-color: transparent; }
+.help { margin: -.55rem 0 1rem; color: rgb(23 23 20 / 55%); font-size: .76rem; }
+.submit { min-height: 3.25rem; margin-top: .35rem; border: 0; border-radius: 999px; color: #fff; background: #171714; font: 500 1rem inherit; cursor: pointer; }
+.submit:hover { color: #b9ddff; }
+.submit:disabled { cursor: wait; opacity: .55; }
+.status { min-height: 1.3rem; margin: .85rem 0 0; color: #a52a2a; font-size: .82rem; text-align: center; }
+.status.success { color: #26723d; }
+.legal { margin: 1rem 0 0; color: rgb(23 23 20 / 52%); font-size: .72rem; line-height: 1.5; text-align: center; }
+a { color: inherit; text-underline-offset: .15rem; }
+@media (max-width: 35rem) { .logo { top: 1.4rem; left: 1.4rem; } .auth-card { border-radius: 1.1rem; } }

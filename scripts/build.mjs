@@ -11,8 +11,14 @@ const files = [
   "how-it-works.css",
   "privacy.html",
   "terms.html",
+  "auth/index.html",
+  "auth/auth.css",
+  "auth/auth.js",
   "macbook.png",
   "macmini.png",
+  "on1.png",
+  "on2.png",
+  "on3.png",
   "earn/index.html",
   "earn/earn.css",
   "earn/earn.js",
@@ -29,11 +35,13 @@ for (const file of files) {
 }
 
 const downloadUrl = process.env.OFFTIME_DOWNLOAD_URL?.trim() || "";
+const apiUrl = process.env.OFFTIME_API_URL?.trim() || "";
+if (process.env.VERCEL_ENV === "production" && !/^https:\/\/[^/\s]+\/?$/.test(apiUrl)) {
+  throw new Error("Production builds require OFFTIME_API_URL with an HTTPS origin.");
+}
 const config = `window.OFFTIME_CONFIG = {\n  downloadUrl: ${JSON.stringify(downloadUrl)},\n};\n`;
 await writeFile(path.join(output, "earn/config.js"), config);
-
-const earnHtml = await readFile(path.join(output, "earn/index.html"), "utf8");
-if (!earnHtml.includes("./config.js")) throw new Error("Earn page is missing runtime configuration.");
+await writeFile(path.join(output, "auth/config.js"), `window.OFFTIME_AUTH_CONFIG = { apiUrl: ${JSON.stringify(apiUrl)} };\n`);
 
 const computeHtml = await readFile(path.join(output, "compute/index.html"), "utf8");
 if (!computeHtml.includes("../earn/config.js")) throw new Error("Compute page is missing shared download configuration.");

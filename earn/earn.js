@@ -12,8 +12,11 @@
 
     if (hasDownload) {
       link.href = configuredUrl;
-      manual.href = configuredUrl;
-      manual.setAttribute("download", "");
+      link.setAttribute("download", "");
+      if (manual) {
+        manual.href = configuredUrl;
+        manual.setAttribute("download", "");
+      }
     } else {
       link.setAttribute("aria-describedby", status.id);
     }
@@ -27,10 +30,13 @@
       }
 
       link.classList.add("is-downloading");
-      link.firstChild.textContent = "Downloading Offtime… ";
       status.textContent = "Your download should begin shortly.";
-      manual.hidden = false;
+      if (manual) manual.hidden = false;
     });
+
+    if (hasDownload && action.hasAttribute("data-auto-download-action")) {
+      window.setTimeout(() => link.click(), 0);
+    }
   });
 
   const revealItems = document.querySelectorAll(".reveal");

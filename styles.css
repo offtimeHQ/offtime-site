@@ -67,6 +67,11 @@ main {
   white-space: nowrap;
 }
 
+.hero-heading .hero-heading__secondary {
+  color: rgb(23 23 20 / 52%);
+  font-weight: 400;
+}
+
 .hero-support {
   position: relative;
   z-index: 10;

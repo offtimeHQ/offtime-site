@@ -3,147 +3,63 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Install Offtime for macOS and put your Mac’s idle compute to work on your terms." />
-    <title>Start Earning — Offtime.</title>
+    <meta name="description" content="Finish installing Offtime for macOS in three simple steps." />
+    <title>Thanks for downloading — Offtime.</title>
     <link rel="preconnect" href="https://api.fontshare.com" />
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./earn.css" />
-    <script src="./config.js" defer></script>
-    <script src="./earn.js" defer></script>
+    <link rel="stylesheet" href="/earn/earn.css" />
+    <script src="/earn/config.js" defer></script>
+    <script src="/earn/earn.js" defer></script>
   </head>
   <body>
-    <header class="earn-header">
-      <a class="earn-header__home" href="../index.html" aria-label="Offtime home">Offtime.</a>
-      <a class="earn-header__back" href="../index.html">Back to home</a>
+    <header class="site-header">
+      <a class="site-header__logo" href="/" aria-label="Offtime home">Offtime.</a>
+      <nav aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/privacy.html">Privacy Policy</a>
+      </nav>
     </header>
 
-    <main>
-      <section class="earn-hero" aria-labelledby="hero-title">
-        <div class="hero-glow" aria-hidden="true"></div>
-        <p class="eyebrow">Offtime for Mac</p>
-        <h1 id="hero-title">Make your Mac work<br />while you don’t.</h1>
-        <p class="earn-hero__intro">Install Offtime once. We’ll handle the rest.</p>
-        <div class="download-action" data-download-action>
-          <a class="download-button" data-download-link href="#download-unavailable">Download for macOS <span aria-hidden="true">→</span></a>
-          <p class="platform-note">Apple Silicon · macOS</p>
-          <p id="hero-download-status" class="download-status" data-download-status role="status" aria-live="polite"></p>
-          <a class="manual-download" data-manual-download hidden>Didn’t start? Download manually.</a>
+    <main class="download-page">
+      <section class="download-intro" aria-labelledby="download-title">
+        <h1 id="download-title">
+          <span>Thanks for downloading!</span>
+          <span class="download-title__secondary">Just a few steps left.</span>
+        </h1>
+        <div class="download-action" data-download-action data-auto-download-action>
+          <p>
+            Your download will begin automatically. If it didn't,
+            <a data-download-link data-manual-download href="#download-unavailable">download Offtime manually</a>.
+          </p>
+          <p id="download-status" class="download-status" data-download-status role="status" aria-live="polite"></p>
         </div>
-        <p class="ownership-note">Your Mac stays yours. Pause anytime.</p>
       </section>
 
-      <section class="steps" aria-label="Get started with Offtime">
-        <div class="steps-intro reveal">
-          <p class="eyebrow">Four simple steps</p>
-          <h2>Set it up once.<br />Then get on with your day.</h2>
-          <p>Offtime finds your Mac, follows your rules, and only uses compute you make available.</p>
-        </div>
+      <section class="install-guide" aria-label="Install Offtime in three steps">
+        <article class="install-step">
+          <div class="step-title"><span class="step-number" aria-hidden="true">1</span><h2>Open</h2></div>
+          <div class="step-image">
+            <img src="/on1.png" width="706" height="454" alt="The Offtime installer in the macOS Downloads folder" />
+          </div>
+          <p>Open the Offtime.dmg file from your Downloads folder</p>
+        </article>
 
-        <ol class="steps-grid">
-          <li class="step reveal">
-            <div class="step__heading">
-              <span class="step__number">01</span>
-              <p>Download</p>
-              <h3>Install Offtime.</h3>
-            </div>
-            <div class="step-visual finder-window" aria-label="A macOS Downloads folder containing Offtime.dmg">
-              <div class="window-bar"><i></i><i></i><i></i><span>Downloads</span></div>
-              <div class="finder-body">
-                <div class="finder-sidebar" aria-hidden="true"><b></b><b></b><b></b><b></b></div>
-                <div class="dmg-file">
-                  <div class="dmg-icon"><span>O</span></div>
-                  <strong>Offtime.dmg</strong>
-                  <small>Disk Image</small>
-                </div>
-              </div>
-              <div class="open-hint"><span>Double-click to open</span><b aria-hidden="true">↗</b></div>
-            </div>
-            <p class="step__copy">One small app. Open the download and move Offtime to Applications.</p>
-          </li>
+        <article class="install-step">
+          <div class="step-title"><span class="step-number" aria-hidden="true">2</span><h2>Install</h2></div>
+          <div class="step-image">
+            <img src="/on2.png" width="1550" height="852" alt="Offtime being dragged into the macOS Applications folder" />
+          </div>
+          <p>Drag the Offtime icon into your Applications folder</p>
+        </article>
 
-          <li class="step reveal">
-            <div class="step__heading">
-              <span class="step__number">02</span>
-              <p>Connect</p>
-              <h3>Connect your Mac.</h3>
-            </div>
-            <div class="step-visual app-window" aria-label="Offtime detects an M4 Pro Mac with 48 GB of memory">
-              <div class="window-bar"><i></i><i></i><i></i><span>Offtime.</span></div>
-              <div class="app-content">
-                <span class="app-kicker">Your Mac</span>
-                <div class="mac-symbol" aria-hidden="true"><span></span></div>
-                <h4>M4 Pro</h4>
-                <p>48 GB</p>
-                <ul>
-                  <li><span>✓</span> Apple Silicon</li>
-                  <li><span>✓</span> Ready to earn</li>
-                </ul>
-                <div class="mock-button" aria-hidden="true">Continue <span>→</span></div>
-              </div>
-            </div>
-            <p class="step__copy">Offtime recognizes your hardware automatically. No technical setup required.</p>
-          </li>
-
-          <li class="step reveal">
-            <div class="step__heading">
-              <span class="step__number">03</span>
-              <p>Set it and forget it</p>
-              <h3>Choose your rules.</h3>
-            </div>
-            <div class="step-visual app-window preferences-window" aria-label="Offtime preferences for when the Mac can work">
-              <div class="window-bar"><i></i><i></i><i></i><span>Offtime.</span></div>
-              <div class="preferences-content">
-                <h4>When should Offtime work?</h4>
-                <div class="choice selected"><span></span>Automatically when I’m away</div>
-                <div class="choice"><span></span>Only overnight</div>
-                <div class="choice"><span></span>Custom schedule</div>
-                <div class="preference-divider"></div>
-                <div class="check"><span>✓</span>Only while plugged in</div>
-                <div class="check"><span>✓</span>Stop when I use my Mac</div>
-                <div class="mock-button" aria-hidden="true">Start sharing <span>→</span></div>
-              </div>
-            </div>
-            <p class="step__copy">You decide when compute is available. Your work always comes first.</p>
-          </li>
-
-          <li class="step reveal">
-            <div class="step__heading">
-              <span class="step__number">04</span>
-              <p>Get paid</p>
-              <h3>That’s it.</h3>
-            </div>
-            <div class="step-visual status-window" aria-label="Illustrative Offtime menu showing active work and example earnings">
-              <div class="menu-bar"><span>Offtime.</span><span class="menu-icons">● &nbsp; ◐ &nbsp; 9:41</span></div>
-              <div class="status-popover">
-                <div class="working-status"><span></span>Working</div>
-                <h4>M4 Pro · 48 GB</h4>
-                <strong>$<span data-earnings>2.14</span> earned tonight</strong>
-                <small>Illustrative example</small>
-                <div class="status-rule"></div>
-                <p>Owner activity pauses sharing automatically.</p>
-              </div>
-            </div>
-            <p class="step__copy">You use your Mac when you need it. Offtime works when you don’t.</p>
-          </li>
-        </ol>
-      </section>
-
-      <section class="trust-note reveal" aria-labelledby="trust-title">
-        <p class="eyebrow">Built around your control</p>
-        <h2 id="trust-title">Your Mac is never handed to someone else.</h2>
-        <p>Offtime shares only the idle compute you allow. People do not get access to your desktop, files, or personal apps—and you can pause at any time.</p>
-      </section>
-
-      <section class="bottom-cta reveal" aria-labelledby="bottom-title">
-        <div class="bottom-glow" aria-hidden="true"></div>
-        <h2 id="bottom-title">Ready to put your Mac to work?</h2>
-        <div class="download-action" data-download-action>
-          <a class="download-button" data-download-link href="#download-unavailable">Download for macOS <span aria-hidden="true">→</span></a>
-          <p class="platform-note">macOS required · Apple Silicon recommended</p>
-          <p id="bottom-download-status" class="download-status" data-download-status role="status" aria-live="polite"></p>
-          <a class="manual-download" data-manual-download hidden>Didn’t start? Download manually.</a>
-        </div>
-        <a class="how-link" href="../how-it-works.html">How it works <span aria-hidden="true">→</span></a>
+        <article class="install-step">
+          <div class="step-title"><span class="step-number" aria-hidden="true">3</span><h2>Launch</h2></div>
+          <div class="step-image">
+            <img src="/on3.png" width="744" height="458" alt="Offtime selected in the macOS Applications folder" />
+          </div>
+          <p>Open Offtime from your Applications folder</p>
+        </article>
       </section>
     </main>
   </body>
