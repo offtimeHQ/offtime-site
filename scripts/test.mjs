@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { spawnSync } from "node:child_process";
 
 const [html, build, packageSource, authHtml, authScript] = await Promise.all([
   readFile(new URL("../compute/index.html", import.meta.url), "utf8"),
@@ -23,5 +24,20 @@ assert.match(authHtml, /type="email"[\s\S]*type="password"/, "Auth must request 
 assert.match(authHtml, /terms\.html[\s\S]*privacy\.html/, "Auth must link to Terms and Privacy.");
 assert.match(authScript, /redirectUri === "offtime:\/\/auth\/callback"/, "Auth must allow only the app callback.");
 assert.doesNotMatch(authScript, /session_token|localStorage|document\.cookie/, "Browser code must not receive or persist app sessions.");
+
+const productionEnvironment = { ...process.env, VERCEL_ENV: "production" };
+delete productionEnvironment.OFFTIME_API_URL;
+const unconfiguredBuild = spawnSync(process.execPath, [new URL("./build.mjs", import.meta.url).pathname], {
+  encoding: "utf8",
+  env: productionEnvironment,
+});
+assert.equal(unconfiguredBuild.status, 0, `Production must build without optional API configuration:\n${unconfiguredBuild.stderr}`);
+
+const unsafeBuild = spawnSync(process.execPath, [new URL("./build.mjs", import.meta.url).pathname], {
+  encoding: "utf8",
+  env: { ...productionEnvironment, OFFTIME_API_URL: "http://api.example.com" },
+});
+assert.notEqual(unsafeBuild.status, 0, "Production must reject a non-HTTPS API URL.");
+assert.match(unsafeBuild.stderr, /must be an HTTPS origin/, "Unsafe API URL failure must explain the requirement.");
 
 console.log("Static compute onboarding safeguards are valid.");

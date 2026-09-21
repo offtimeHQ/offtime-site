@@ -22,7 +22,8 @@ the app with `OFFTIME_WEBSITE_URL=http://127.0.0.1:4173` in development mode.
 
 Set these Vercel environment variables:
 
-- `OFFTIME_API_URL=https://<control-plane-host>` (required for production)
+- `OFFTIME_API_URL=https://<control-plane-host>` (required to enable browser authentication; the
+  site still deploys without it and displays an unavailable message on `/auth/`)
 - `OFFTIME_DOWNLOAD_URL=https://<download-host>/Offtime.dmg` (when the signed DMG is available)
 
 The control plane must independently set `OFFTIME_WEBSITE_ORIGIN` to this deployment's exact HTTPS

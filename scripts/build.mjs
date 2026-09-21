@@ -36,8 +36,8 @@ for (const file of files) {
 
 const downloadUrl = process.env.OFFTIME_DOWNLOAD_URL?.trim() || "";
 const apiUrl = process.env.OFFTIME_API_URL?.trim() || "";
-if (process.env.VERCEL_ENV === "production" && !/^https:\/\/[^/\s]+\/?$/.test(apiUrl)) {
-  throw new Error("Production builds require OFFTIME_API_URL with an HTTPS origin.");
+if (process.env.VERCEL_ENV === "production" && apiUrl && !/^https:\/\/[^/\s]+\/?$/.test(apiUrl)) {
+  throw new Error("Production OFFTIME_API_URL must be an HTTPS origin when configured.");
 }
 const config = `window.OFFTIME_CONFIG = {\n  downloadUrl: ${JSON.stringify(downloadUrl)},\n};\n`;
 await writeFile(path.join(output, "earn/config.js"), config);
