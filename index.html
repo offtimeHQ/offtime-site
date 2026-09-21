@@ -13,10 +13,19 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
+    <script src="./landing/config.js" defer></script>
+    <script src="./landing/landing.js" defer></script>
   </head>
   <body>
     <main>
-      <h1 class="logo">Offtime.</h1>
+      <header class="landing-header">
+        <div class="launch-countdown" role="timer" aria-label="Time until launch">
+          <span class="launch-countdown__dot" aria-hidden="true"></span>
+          <span class="launch-countdown__label">Live in</span>
+          <span class="launch-countdown__time" data-countdown>05d 00h 00m 00s</span>
+        </div>
+        <h1 class="logo">Offtime.</h1>
+      </header>
       <p class="hero-heading">
         <span>Make money when your Mac</span>
         <span class="hero-heading__secondary">isn’t being used.</span>
@@ -24,12 +33,6 @@
       <p class="hero-support">
         Offtime puts your idle Mac’s compute to work. You get paid for the time it’s used.
       </p>
-      <div class="top-cta">
-        <a class="start-button" href="./earn/">Start earning <span aria-hidden="true">→</span></a>
-        <p>Your Mac stays yours. Pause anytime.</p>
-        <a class="mobile-compute-link" href="./compute/">Need compute instead? → Get compute</a>
-      </div>
-
       <section id="products" class="product-stage" aria-label="Offtime for Mac">
         <figure class="product product--macbook">
           <div class="glow glow--macbook" aria-hidden="true"></div>
@@ -49,7 +52,47 @@
       </section>
 
       <footer class="site-footer">
-        <a class="compute-link" href="./earn/">Need compute instead? → <span>Get compute</span></a>
+        <section id="waitlist" class="waitlist" aria-labelledby="waitlist-title">
+          <div class="waitlist__heading">
+            <p class="waitlist__eyebrow">Early access</p>
+            <p id="waitlist-title" class="waitlist__title">Be first in line.</p>
+            <p class="waitlist__description">Tell us how you’ll use Offtime and we’ll keep you posted.</p>
+          </div>
+          <form id="waitlist-form" class="waitlist__form">
+            <fieldset class="interest-picker">
+              <legend>What are you interested in?</legend>
+              <label>
+                <input type="radio" name="interest" value="earning" required />
+                <span><i aria-hidden="true"></i>Earn with my Mac</span>
+              </label>
+              <label>
+                <input type="radio" name="interest" value="compute" required />
+                <span><i aria-hidden="true"></i>Access compute</span>
+              </label>
+            </fieldset>
+            <div class="waitlist__entry">
+              <label class="sr-only" for="waitlist-email">Email address</label>
+              <input
+                id="waitlist-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                inputmode="email"
+                maxlength="254"
+                placeholder="Email address"
+                required
+              />
+              <label class="waitlist__website" aria-hidden="true">
+                Website
+                <input name="website" type="text" tabindex="-1" autocomplete="off" />
+              </label>
+              <button id="waitlist-submit" type="submit" disabled>Join <span aria-hidden="true">→</span></button>
+            </div>
+          </form>
+          <p id="waitlist-status" class="waitlist__status" role="status" aria-live="polite">
+            Launch updates only. <a href="./privacy.html">Privacy</a>
+          </p>
+        </section>
         <nav class="footer-links" aria-label="Footer">
           <a href="./privacy.html">Privacy</a>
           <a href="./terms.html">Terms of Service</a>

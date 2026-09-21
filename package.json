@@ -5,8 +5,8 @@
   "scripts": {
     "start": "python3 -m http.server 4173",
     "build": "node scripts/build.mjs",
-    "lint": "node scripts/validate.mjs && node --check earn/earn.js && node --check earn/config.js && node --check auth/auth.js && node --check auth/config.js && node --check scripts/build.mjs && node --check scripts/test.mjs",
-    "typecheck": "node --check earn/earn.js && node --check auth/auth.js && node --check scripts/build.mjs && node --check scripts/validate.mjs && node --check scripts/test.mjs",
+    "lint": "node scripts/validate.mjs && node --check landing/landing.js && node --check landing/config.js && node --check earn/earn.js && node --check earn/config.js && node --check auth/auth.js && node --check auth/config.js && node --check scripts/build.mjs && node --check scripts/test.mjs",
+    "typecheck": "node --check landing/landing.js && node --check earn/earn.js && node --check auth/auth.js && node --check scripts/build.mjs && node --check scripts/validate.mjs && node --check scripts/test.mjs",
     "test": "node scripts/test.mjs"
   }
 }
