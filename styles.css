@@ -754,7 +754,7 @@ main {
     position: absolute;
     z-index: 3;
     top: -9rem;
-    right: 0;
+    right: calc(-1 * clamp(1.25rem, 5vw, 2.5rem));
     bottom: 0;
     left: calc(-1 * clamp(1.25rem, 5vw, 2.5rem));
     pointer-events: none;
@@ -762,13 +762,9 @@ main {
     background: linear-gradient(
       to bottom,
       rgb(250 248 243 / 0%) 0%,
-      rgb(250 248 243 / 38%) 45%,
+      rgb(250 248 243 / 72%) 45%,
       rgb(250 248 243 / 88%) 100%
     );
-    -webkit-backdrop-filter: blur(0.9rem);
-    backdrop-filter: blur(0.9rem);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 58%, black 100%);
-    mask-image: linear-gradient(to bottom, transparent 0%, black 58%, black 100%);
   }
 
   .site-footer .compute-link {
