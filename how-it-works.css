@@ -1,6 +1,6 @@
 .how-root,
 .how-page {
-  background: #fff;
+  background: #faf8f3;
 }
 
 .how-page {
@@ -12,7 +12,7 @@
   overflow-x: clip;
   overflow-y: auto;
   color: var(--how-ink);
-  background: #fff;
+  background: #faf8f3;
 }
 
 .how-page a { color: inherit; }
@@ -365,7 +365,7 @@
   margin: 0;
   padding: 0;
   border-top: 0;
-  background: #fff;
+  background: #faf8f3;
   backdrop-filter: none;
 }
 
