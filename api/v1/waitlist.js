@@ -70,11 +70,15 @@ async function supabaseRequest(path, body, additionalHeaders = {}) {
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
   if (!supabaseUrl || !serviceRoleKey) throw new Error("Supabase is not configured");
 
+  const authorizationHeaders = serviceRoleKey.startsWith("sb_secret_")
+    ? {}
+    : { Authorization: `Bearer ${serviceRoleKey}` };
+
   return fetch(`${supabaseUrl}${path}`, {
     method: "POST",
     headers: {
       apikey: serviceRoleKey,
-      Authorization: `Bearer ${serviceRoleKey}`,
+      ...authorizationHeaders,
       "Content-Type": "application/json",
       ...additionalHeaders,
     },

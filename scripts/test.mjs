@@ -17,6 +17,7 @@ const [
   landingScript,
   waitlistMigration,
   rateLimitMigration,
+  rateLimitFixMigration,
   vercelConfig,
 ] =
   await Promise.all([
@@ -33,6 +34,10 @@ const [
     ),
     readFile(
       new URL("../supabase/migrations/20260921210000_create_waitlist_rate_limits.sql", import.meta.url),
+      "utf8",
+    ),
+    readFile(
+      new URL("../supabase/migrations/20260922065000_fix_waitlist_rate_limit_timestamp.sql", import.meta.url),
       "utf8",
     ),
     readFile(new URL("../vercel.json", import.meta.url), "utf8"),
@@ -67,6 +72,7 @@ assert.match(waitlistMigration, /ENABLE ROW LEVEL SECURITY/g, "Waitlist tables m
 assert.match(waitlistMigration, /update_waitlist_daily_statistics/, "Waitlist statistics must stay synchronized by trigger.");
 assert.match(rateLimitMigration, /CREATE TABLE public\.waitlist_rate_limits/, "Migration must create private rate-limit counters.");
 assert.match(rateLimitMigration, /consume_waitlist_rate_limit/, "Rate limiting must use an atomic database function.");
+assert.match(rateLimitFixMigration, /request_time TIMESTAMPTZ/, "Rate limiting must use an unambiguous timestamp value.");
 assert.match(vercelConfig, /"source": "\/v1\/waitlist"[\s\S]*"destination": "\/api\/v1\/waitlist"/, "Vercel must route the public waitlist endpoint.");
 assert.doesNotMatch(await readFile(new URL("../how-it-works.html", import.meta.url), "utf8"), /Start earning|Get compute/, "How-it-works calls to action must use the waitlist.");
 
