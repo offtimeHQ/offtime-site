@@ -60,17 +60,20 @@
             <p class="waitlist__description">Tell us how you’ll use Offtime and we’ll keep you posted.</p>
           </div>
           <form id="waitlist-form" class="waitlist__form">
-            <fieldset class="interest-picker">
-              <legend>What are you interested in?</legend>
-              <label>
-                <input type="radio" name="interest" value="earning" required />
-                <span><i aria-hidden="true"></i>Earn with my Mac</span>
-              </label>
-              <label>
-                <input type="radio" name="interest" value="compute" required />
-                <span><i aria-hidden="true"></i>Access compute</span>
-              </label>
-            </fieldset>
+            <div class="interest-choice">
+              <fieldset class="interest-picker">
+                <legend>What are you interested in?</legend>
+                <label>
+                  <input type="radio" name="interest" value="earning" required />
+                  <span><i aria-hidden="true"></i>Earn with my Mac</span>
+                </label>
+                <label>
+                  <input type="radio" name="interest" value="compute" required />
+                  <span><i aria-hidden="true"></i>Access compute</span>
+                </label>
+              </fieldset>
+              <p class="interest-choice__prompt"><span aria-hidden="true">←</span> I’m interested in</p>
+            </div>
             <div class="waitlist__entry">
               <label class="sr-only" for="waitlist-email">Email address</label>
               <input

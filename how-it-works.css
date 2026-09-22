@@ -398,6 +398,20 @@
   padding-top: 0.5rem;
 }
 
+@media (min-width: 901px) {
+  .how-page .interest-choice {
+    align-items: center;
+  }
+
+  .how-page .interest-picker {
+    width: calc(100% - 10rem);
+  }
+
+  .how-page .interest-choice__prompt {
+    font-size: 0.72rem;
+  }
+}
+
 .how-page .interest-picker {
   display: grid;
   grid-template-columns: 1fr;

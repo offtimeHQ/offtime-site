@@ -58,6 +58,7 @@ assert.match(authHtml, /terms\.html[\s\S]*privacy\.html/, "Auth must link to Ter
 assert.match(authScript, /redirectUri === "offtime:\/\/auth\/callback"/, "Auth must allow only the app callback.");
 assert.doesNotMatch(authScript, /session_token|localStorage|document\.cookie/, "Browser code must not receive or persist app sessions.");
 assert.match(landingHtml, /id="waitlist-form"[\s\S]*value="earning"[\s\S]*value="compute"/, "Landing page must collect both waitlist interests.");
+assert.match(landingHtml, /class="interest-choice__prompt"[\s\S]*I’m interested in/, "Landing waitlist must label the interest options with a directional prompt.");
 assert.match(landingHtml, /type="email"[\s\S]*id="waitlist-submit"/, "Waitlist must collect and submit an email address.");
 assert.match(landingHtml, /id="waitlist-submit" type="submit" disabled/, "Waitlist submission must start disabled until an interest is selected.");
 assert.match(landingHtml, /href="\.\/how-it-works\.html"/, "Landing navigation must link to the how-it-works page.");
@@ -79,6 +80,7 @@ assert.match(vercelConfig, /"source": "\/v1\/waitlist"[\s\S]*"destination": "\/a
 const howItWorksHtml = await readFile(new URL("../how-it-works.html", import.meta.url), "utf8");
 assert.match(howItWorksHtml, /Compute is everywhere\.[\s\S]*Most of it is idle\./, "How-it-works must open with the core idle-compute idea.");
 assert.match(howItWorksHtml, /id="waitlist"[\s\S]*id="waitlist-form"[\s\S]*value="earning"[\s\S]*value="compute"/, "How-it-works must end with the shared waitlist UI.");
+assert.match(howItWorksHtml, /class="interest-choice__prompt"[\s\S]*I’m interested in/, "How-it-works waitlist must include the directional interest prompt.");
 assert.match(howItWorksHtml, /<header class="how-nav">[\s\S]*<nav aria-label="Primary navigation">[\s\S]*class="how-nav__cta" href="\.\/index\.html">Join<\/a>/, "The how-it-works header must include a Join button linking home.");
 assert.doesNotMatch(howItWorksHtml, /final-path|Start earning|Join the waitlist/, "How-it-works must not retain the split final CTA.");
 assert.match(howItWorksHtml, /<footer class="how-footer">\s*<p>Offtime\.<\/p>\s*<\/footer>/, "How-it-works must end with only the centered Offtime wordmark.");
