@@ -60,12 +60,14 @@ assert.doesNotMatch(authScript, /session_token|localStorage|document\.cookie/, "
 assert.match(landingHtml, /id="waitlist-form"[\s\S]*value="earning"[\s\S]*value="compute"/, "Landing page must collect both waitlist interests.");
 assert.match(landingHtml, /type="email"[\s\S]*id="waitlist-submit"/, "Waitlist must collect and submit an email address.");
 assert.match(landingHtml, /id="waitlist-submit" type="submit" disabled/, "Waitlist submission must start disabled until an interest is selected.");
+assert.match(landingHtml, /href="\.\/how-it-works\.html"/, "Landing navigation must link to the how-it-works page.");
 assert.doesNotMatch(landingHtml, /Start earning|Get compute/, "Landing page must not link visitors into product onboarding.");
 assert.match(landingScript, /\/v1\/waitlist/, "Waitlist must submit to the control-plane endpoint.");
 assert.match(landingScript, /config\.apiUrl \|\| window\.location\.origin/, "Waitlist must default to its same-origin API.");
 assert.match(landingScript, /input\[name="interest"\]:checked/, "Waitlist submission must remain disabled until an interest is selected.");
 assert.match(landingScript, /email: email\.value\.trim\(\)[\s\S]*interest: data\.get\("interest"\)/, "Waitlist payload must include both email and interest.");
-assert.match(landingScript, /5 \* 24 \* 60 \* 60 \* 1000/, "Countdown must have a five-day fallback.");
+assert.match(landingScript, /defaultWaitlistEndAt = "2026-09-27T00:00:00Z"/, "Countdown must default to the September 27 launch deadline.");
+assert.match(build, /defaultWaitlistEndAt = "2026-09-27T00:00:00Z"/, "Production builds must default to the September 27 launch deadline.");
 assert.match(waitlistMigration, /CREATE TABLE public\.waitlist_entries/, "Migration must create the private waitlist table.");
 assert.match(waitlistMigration, /CREATE TABLE public\.waitlist_daily_statistics/, "Migration must create aggregate waitlist statistics.");
 assert.match(waitlistMigration, /ENABLE ROW LEVEL SECURITY/g, "Waitlist tables must use row-level security.");
@@ -74,7 +76,13 @@ assert.match(rateLimitMigration, /CREATE TABLE public\.waitlist_rate_limits/, "M
 assert.match(rateLimitMigration, /consume_waitlist_rate_limit/, "Rate limiting must use an atomic database function.");
 assert.match(rateLimitFixMigration, /request_time TIMESTAMPTZ/, "Rate limiting must use an unambiguous timestamp value.");
 assert.match(vercelConfig, /"source": "\/v1\/waitlist"[\s\S]*"destination": "\/api\/v1\/waitlist"/, "Vercel must route the public waitlist endpoint.");
-assert.doesNotMatch(await readFile(new URL("../how-it-works.html", import.meta.url), "utf8"), /Start earning|Get compute/, "How-it-works calls to action must use the waitlist.");
+const howItWorksHtml = await readFile(new URL("../how-it-works.html", import.meta.url), "utf8");
+assert.match(howItWorksHtml, /Compute is everywhere\.[\s\S]*Most of it is idle\./, "How-it-works must open with the core idle-compute idea.");
+assert.match(howItWorksHtml, /id="waitlist"[\s\S]*id="waitlist-form"[\s\S]*value="earning"[\s\S]*value="compute"/, "How-it-works must end with the shared waitlist UI.");
+assert.match(howItWorksHtml, /<header class="how-nav">[\s\S]*<nav aria-label="Primary navigation">[\s\S]*class="how-nav__cta" href="\.\/index\.html">Join<\/a>/, "The how-it-works header must include a Join button linking home.");
+assert.doesNotMatch(howItWorksHtml, /final-path|Start earning|Join the waitlist/, "How-it-works must not retain the split final CTA.");
+assert.match(howItWorksHtml, /<footer class="how-footer">\s*<p>Offtime\.<\/p>\s*<\/footer>/, "How-it-works must end with only the centered Offtime wordmark.");
+assert.doesNotMatch(howItWorksHtml, /<(?:img|svg|video|picture|canvas)\b/i, "How-it-works must remain entirely text driven.");
 
 function createResponse() {
   return {

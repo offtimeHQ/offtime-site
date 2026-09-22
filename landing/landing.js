@@ -1,10 +1,11 @@
 (() => {
   "use strict";
 
+  const defaultWaitlistEndAt = "2026-09-27T00:00:00Z";
   const config = window.OFFTIME_LANDING_CONFIG || {};
   const apiUrl = (config.apiUrl || window.location.origin).replace(/\/$/, "");
   const configuredEnd = Date.parse(config.waitlistEndAt || "");
-  const endAt = Number.isNaN(configuredEnd) ? Date.now() + 5 * 24 * 60 * 60 * 1000 : configuredEnd;
+  const endAt = Number.isNaN(configuredEnd) ? Date.parse(defaultWaitlistEndAt) : configuredEnd;
   const countdown = document.querySelector("[data-countdown]");
   const countdownLabel = document.querySelector(".launch-countdown__label");
   const form = document.querySelector("#waitlist-form");
@@ -32,10 +33,12 @@
     return remaining;
   }
 
-  updateCountdown();
-  const countdownInterval = window.setInterval(() => {
-    if (updateCountdown() === 0) window.clearInterval(countdownInterval);
-  }, 1_000);
+  if (countdown && countdownLabel) {
+    updateCountdown();
+    const countdownInterval = window.setInterval(() => {
+      if (updateCountdown() === 0) window.clearInterval(countdownInterval);
+    }, 1_000);
+  }
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();

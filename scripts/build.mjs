@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const output = path.join(root, "dist");
+const defaultWaitlistEndAt = "2026-09-27T00:00:00Z";
 const files = [
   "index.html",
   "styles.css",
@@ -44,7 +45,7 @@ if (process.env.VERCEL_ENV === "production" && apiUrl && !/^https:\/\/[^/\s]+\/?
 if (configuredWaitlistEnd && Number.isNaN(Date.parse(configuredWaitlistEnd))) {
   throw new Error("OFFTIME_WAITLIST_END_AT must be a valid ISO 8601 timestamp.");
 }
-const waitlistEndAt = configuredWaitlistEnd || new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString();
+const waitlistEndAt = configuredWaitlistEnd || defaultWaitlistEndAt;
 const config = `window.OFFTIME_CONFIG = {\n  downloadUrl: ${JSON.stringify(downloadUrl)},\n};\n`;
 await writeFile(path.join(output, "earn/config.js"), config);
 await writeFile(path.join(output, "auth/config.js"), `window.OFFTIME_AUTH_CONFIG = { apiUrl: ${JSON.stringify(apiUrl)} };\n`);

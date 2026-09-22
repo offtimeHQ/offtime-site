@@ -25,8 +25,8 @@ Set these Vercel environment variables:
 - `OFFTIME_API_URL=https://<control-plane-host>` (required to enable browser authentication; the
   site still deploys without it and displays an unavailable message on `/auth/`)
 - `OFFTIME_DOWNLOAD_URL=https://<download-host>/Offtime.dmg` (when the signed DMG is available)
-- `OFFTIME_WAITLIST_END_AT=2026-09-27T00:00:00Z` (optional fixed launch deadline; when omitted, the
-  build uses five days after build time)
+- `OFFTIME_WAITLIST_END_AT=2026-09-27T00:00:00Z` (optional launch deadline override; when omitted,
+  the countdown defaults to September 27, 2026 at 00:00 UTC)
 
 The control plane must independently set `OFFTIME_WEBSITE_ORIGIN` to this deployment's exact HTTPS
 origin. Preview deployments need their own backend/environment or explicit origin configuration;

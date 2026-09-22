@@ -1,1 +1,1 @@
-window.OFFTIME_LANDING_CONFIG = { apiUrl: "", waitlistEndAt: "" };
+window.OFFTIME_LANDING_CONFIG = { apiUrl: "", waitlistEndAt: "2026-09-27T00:00:00Z" };

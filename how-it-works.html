@@ -1,178 +1,243 @@
 <!doctype html>
-<html lang="en">
+<html class="how-root" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="See how Offtime connects unused Mac compute with people who need it, while keeping owners in control." />
-    <title>How It Works — Offtime.</title>
+    <meta
+      name="description"
+      content="Learn how Offtime connects unused compute with people who need it."
+    />
+    <title>How Offtime Works — Offtime.</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="alternate icon" href="/favicon.ico" sizes="any" />
     <link rel="preconnect" href="https://api.fontshare.com" />
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap" rel="stylesheet" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./how-it-works.css" />
+    <script src="./landing/config.js" defer></script>
+    <script src="./landing/landing.js" defer></script>
   </head>
   <body class="how-page">
     <header class="how-nav">
       <a class="how-nav__logo" href="./index.html" aria-label="Offtime home">Offtime.</a>
-      <nav aria-label="How it works navigation">
-        <a href="#providers">For Mac owners</a>
-        <a href="#renters">For compute</a>
+      <nav aria-label="Primary navigation">
+        <a href="#have-compute">Have compute</a>
+        <a href="#need-compute">Need compute</a>
+        <a class="how-nav__cta" href="./index.html">Join</a>
       </nav>
-      <a class="how-nav__cta" href="./index.html#waitlist">Join waitlist</a>
     </header>
 
     <main class="how-main">
-      <section class="how-hero" aria-labelledby="how-hero-title">
+      <section class="how-hero" aria-labelledby="hero-title">
+        <p class="how-eyebrow">How Offtime works</p>
+        <h1 id="hero-title">Compute is everywhere.<br />Most of it is idle.</h1>
         <div class="how-hero__copy">
-          <p class="eyebrow">How Offtime works</p>
-          <h1 id="how-hero-title">Your Mac works.<br />You get paid.<br />Someone gets compute.</h1>
-          <p class="how-hero__intro">Offtime connects unused Mac compute with people who need it.</p>
-          <div class="how-actions">
-            <a class="start-button" href="./index.html#waitlist">Join the waitlist <span aria-hidden="true">→</span></a>
-          </div>
+          <p>
+            Every day, millions of computers sit unused for hours. At the same time, builders
+            are paying for compute they need to get work done.
+          </p>
+          <p class="how-hero__statement">Offtime connects the two.</p>
         </div>
-        <figure class="how-hero__visual">
-          <div class="hero-orbit" aria-hidden="true"></div>
-          <img src="./macmini.png" alt="Silver Mac mini held in a hand" />
-          <figcaption class="floating-status"><span class="status-dot" aria-hidden="true"></span>Available to earn</figcaption>
-        </figure>
       </section>
 
-      <section class="story-section overview" aria-labelledby="overview-title">
-        <div class="section-heading section-heading--center">
-          <p class="eyebrow">The simple version</p>
-          <h2 id="overview-title">Your Mac doesn’t have to sit idle.</h2>
-          <p>Offtime handles the matching, execution, billing, and cleanup.</p>
+      <section class="how-section gap-section" aria-labelledby="gap-title">
+        <div class="section-index" aria-hidden="true">01</div>
+        <div class="gap-section__content">
+          <h2 id="gap-title">The gap is access.</h2>
+          <div class="how-copy">
+            <p>If you need compute today, you usually rent it from a cloud provider.</p>
+            <p>
+              If you own a powerful machine, most of its capacity goes unused when you're away.
+            </p>
+            <p>These two sides rarely meet.</p>
+          </div>
         </div>
-        <div class="overview-flow" aria-label="Your Mac sends available compute through Offtime to a supported job">
-          <div class="flow-node"><span class="flow-node__label">Your Mac</span><span>Available compute</span></div>
-          <span class="flow-line" aria-hidden="true"></span>
-          <div class="flow-mark">Offtime.</div>
-          <span class="flow-line" aria-hidden="true"></span>
-          <div class="flow-node"><span class="flow-node__label">Someone’s job</span><span>Supported workload</span></div>
+        <p class="gap-statement">We think they should.</p>
+      </section>
+
+      <section class="how-section network-definition" aria-labelledby="definition-title">
+        <div class="section-index" aria-hidden="true">02</div>
+        <div class="network-definition__intro">
+          <h2 id="definition-title">Offtime is a network for compute.</h2>
+          <div class="how-copy">
+            <p>People with spare compute can make it available.</p>
+            <p>People who need compute can use it.</p>
+            <p>Offtime handles the connection between them.</p>
+          </div>
         </div>
-        <ol class="overview-steps">
-          <li><span>01</span>You stop using your Mac.</li>
-          <li><span>02</span>Offtime makes its spare compute available.</li>
-          <li><span>03</span>Someone’s workload runs.</li>
-          <li><span>04</span>You get paid for actual usage.</li>
+        <div class="two-paths" aria-label="The two sides of Offtime">
+          <p><span>Have compute</span><i aria-hidden="true">→</i><span>Share it</span><i aria-hidden="true">→</i><strong>Earn</strong></p>
+          <p><span>Need compute</span><i aria-hidden="true">→</i><span>Submit work</span><i aria-hidden="true">→</i><strong>Get results</strong></p>
+        </div>
+      </section>
+
+      <section id="have-compute" class="how-section provider-section" aria-labelledby="provider-title">
+        <div class="section-index" aria-hidden="true">03</div>
+        <div class="provider-section__primary">
+          <h2 id="provider-title">Your computer doesn't have to sit idle.</h2>
+          <div class="how-copy">
+            <p>Your Mac is probably doing nothing while you're sleeping, working, or away.</p>
+            <p>
+              Offtime lets you share that spare capacity and earn from workloads running on it.
+            </p>
+          </div>
+        </div>
+        <div class="provider-control">
+          <h3>Your Mac. Your rules.</h3>
+          <p>Choose when your Mac is available.<br />Pause anytime.</p>
+          <p class="device-list">MacBook <span>·</span> Mac mini <span>·</span> Mac Studio</p>
+        </div>
+      </section>
+
+      <section id="need-compute" class="how-section renter-section" aria-labelledby="renter-title">
+        <div class="section-index" aria-hidden="true">04</div>
+        <div class="renter-section__intro">
+          <h2 id="renter-title">Need compute?<br />Don't worry about the machine.</h2>
+          <div class="how-copy">
+            <p>Submit your workload to Offtime.</p>
+            <p>We find available compute, run the work, and return the result.</p>
+          </div>
+        </div>
+        <div class="workload-flow" aria-label="Your workload moves through Offtime to available compute and returns as your result">
+          <span>Your workload</span>
+          <i aria-hidden="true">↓</i>
+          <strong>Offtime</strong>
+          <i aria-hidden="true">↓</i>
+          <span>Available compute</span>
+          <i aria-hidden="true">↓</i>
+          <span>Your result</span>
+        </div>
+        <p class="renter-statement">You give us the work.<br />We figure out the compute.</p>
+      </section>
+
+      <section class="how-section process-section" aria-labelledby="process-title">
+        <div class="section-index" aria-hidden="true">05</div>
+        <h2 id="process-title">Behind the scenes,<br />Offtime does the hard part.</h2>
+        <ol class="process-list">
+          <li>
+            <span>01</span>
+            <h3>Match</h3>
+            <p>We find compute that can handle your workload.</p>
+          </li>
+          <li>
+            <span>02</span>
+            <h3>Route</h3>
+            <p>Your work is sent to an available machine.</p>
+          </li>
+          <li>
+            <span>03</span>
+            <h3>Run</h3>
+            <p>The workload runs while that compute is available.</p>
+          </li>
+          <li>
+            <span>04</span>
+            <h3>Return</h3>
+            <p>Your result comes back to you.</p>
+          </li>
         </ol>
+        <p class="process-note">
+          If something goes wrong, Offtime handles retries and keeps the workflow moving.
+        </p>
       </section>
 
-      <section id="providers" class="story-section provider-section" aria-labelledby="provider-title">
-        <div class="section-heading">
-          <p class="eyebrow">For providers</p>
-          <h2 id="provider-title">Turn your Mac’s downtime into income.</h2>
-          <p>Set it up once. Offtime can take it from there whenever your Mac is available.</p>
+      <section class="how-section mental-section" aria-labelledby="mental-title">
+        <div class="section-index" aria-hidden="true">06</div>
+        <div class="mental-section__intro">
+          <h2 id="mental-title">You're not renting a machine.</h2>
+          <p>You don't browse servers.<br />You don't pick a CPU.<br />You don't manage infrastructure.</p>
         </div>
-        <div class="provider-story">
-          <article class="story-step">
-            <div class="story-step__copy"><span class="step-number">Step 01</span><h3>Connect your Mac</h3><p>Install Offtime and confirm the Mac you want to make available.</p></div>
-            <div class="product-panel device-panel" aria-label="Example connected Mac details">
-              <div class="panel-topline"><span>Your Mac</span><span class="status-text">Ready</span></div>
-              <div class="device-panel__body"><div class="device-symbol" aria-hidden="true"><span></span></div><div><strong>MacBook Pro</strong><span>M4 Pro · 48 GB</span></div></div>
-              <div class="ready-line"><span class="status-dot" aria-hidden="true"></span>Ready to earn</div>
-            </div>
-          </article>
-          <article class="story-step story-step--reverse">
-            <div class="story-step__copy"><span class="step-number">Step 02</span><h3>Choose your rules</h3><p>Decide when Offtime can work. Change your mind whenever you like.</p></div>
-            <div class="product-panel settings-panel" aria-label="Example sharing preferences">
-              <div class="setting-row setting-row--primary"><span>Sharing</span><span class="toggle"><span></span></span></div>
-              <div class="setting-row"><span>Only while plugged in</span><span class="check">✓</span></div>
-              <div class="setting-row"><span>Stop when I use my Mac</span><span class="check">✓</span></div>
-            </div>
-          </article>
-          <article class="story-step">
-            <div class="story-step__copy"><span class="step-number">Step 03</span><h3>Go about your day</h3><p>No jobs to hunt down. No machine to babysit. Offtime works when your rules allow it.</p></div>
-            <div class="menubar-window product-panel" aria-label="Example Offtime menu bar status">
-              <div class="window-bar"><span></span><span></span><span></span><time>2:03 AM</time></div>
-              <div class="menubar-content"><div class="panel-topline"><strong><span class="status-dot" aria-hidden="true"></span> Working</strong><span>Offtime.</span></div><p>$3.42 <span>earned tonight</span></p></div>
-            </div>
-          </article>
-          <article class="story-step story-step--reverse">
-            <div class="story-step__copy"><span class="step-number">Step 04</span><h3>Get paid</h3><p>Your earnings reflect the time your Mac’s compute was actually used. Earnings are not guaranteed.</p></div>
-            <div class="product-panel earnings-panel" aria-label="Example earnings summary"><span>Tonight</span><strong>$3.42</strong><div><span>Compute used</span><span>1h 48m</span></div></div>
-          </article>
+        <p class="mental-statement">You rent compute.</p>
+        <p class="mental-close">Tell Offtime what you need done.<br />We'll figure out where it should run.</p>
+      </section>
+
+      <section class="how-section scale-section" aria-labelledby="scale-title">
+        <div class="section-index" aria-hidden="true">07</div>
+        <h2 id="scale-title">One network.<br />Many machines.</h2>
+        <div class="scale-list">
+          <p>A MacBook at night.</p>
+          <p>A Mac mini sitting unused.</p>
+          <p>A workstation after hours.</p>
+        </div>
+        <p class="scale-close">
+          Compute that would otherwise sit idle can become part of the network.
+        </p>
+      </section>
+
+      <section class="how-section silicon-section" aria-labelledby="silicon-title">
+        <div class="section-index" aria-hidden="true">08</div>
+        <h2 id="silicon-title">We're starting with<br />the Macs you already own.</h2>
+        <p class="silicon-devices">MacBooks.<br />Mac minis.<br />Mac Studios.</p>
+        <div class="silicon-close">
+          <h3>Apple Silicon is our first network.</h3>
+          <p>
+            We're building the infrastructure to make distributed compute feel simple,
+            regardless of what machine is underneath.
+          </p>
         </div>
       </section>
 
-      <section class="control-section" aria-labelledby="control-title">
-        <div class="control-section__inner">
-          <div class="section-heading"><p class="eyebrow">You stay in control</p><h2 id="control-title">Your Mac always comes first.</h2><p>You can pause Offtime anytime. When you come back, active compute stops or drains so you can use your Mac normally.</p></div>
-          <div class="control-composition">
-            <div class="state-track" aria-label="Offtime state changes from available to working, draining, and back to available"><span>Available</span><i></i><span>Working</span><i></i><span>You’re back</span><i></i><span>Draining</span><i></i><span>Your Mac is yours</span></div>
-            <div class="control-panels">
-              <div class="product-panel current-job"><div class="panel-topline"><strong><span class="status-dot"></span> Working</strong><span>Offtime.</span></div><div><span>Current job</span><strong>Transcription</strong></div><span class="mock-button">Pause sharing</span></div>
-              <div class="product-panel paused-panel"><span class="pause-symbol" aria-hidden="true">Ⅱ</span><strong>Sharing paused</strong><p>No new work will be accepted.</p></div>
-            </div>
+      <section class="how-section trust-section" aria-labelledby="trust-title">
+        <div class="section-index" aria-hidden="true">09</div>
+        <h2 id="trust-title">Your computer.<br />Your control.</h2>
+        <div class="trust-section__copy how-copy">
+          <p>
+            Offtime is built around spare capacity, not unrestricted access to your computer.
+          </p>
+          <p>You decide when your machine is available.<br />You can pause sharing whenever you want.</p>
+        </div>
+        <p class="trust-statement">Your personal files aren't automatically accessible to Offtime.</p>
+      </section>
+
+      <section id="waitlist" class="final-waitlist" aria-labelledby="waitlist-title">
+        <div class="waitlist">
+          <div class="waitlist__heading">
+            <p class="waitlist__eyebrow">Early access</p>
+            <p id="waitlist-title" class="waitlist__title">Be first in line.</p>
+            <p class="waitlist__description">Tell us how you’ll use Offtime and we’ll keep you posted.</p>
           </div>
+          <form id="waitlist-form" class="waitlist__form">
+            <fieldset class="interest-picker">
+              <legend>What are you interested in?</legend>
+              <label>
+                <input type="radio" name="interest" value="earning" required />
+                <span><i aria-hidden="true"></i>Earn with my Mac</span>
+              </label>
+              <label>
+                <input type="radio" name="interest" value="compute" required />
+                <span><i aria-hidden="true"></i>Access compute</span>
+              </label>
+            </fieldset>
+            <div class="waitlist__entry">
+              <label class="sr-only" for="waitlist-email">Email address</label>
+              <input
+                id="waitlist-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                inputmode="email"
+                maxlength="254"
+                placeholder="Email address"
+                required
+              />
+              <label class="waitlist__website" aria-hidden="true">
+                Website
+                <input name="website" type="text" tabindex="-1" autocomplete="off" />
+              </label>
+              <button id="waitlist-submit" type="submit" disabled>Join <span aria-hidden="true">→</span></button>
+            </div>
+          </form>
+          <p id="waitlist-status" class="waitlist__status" role="status" aria-live="polite">
+            Launch updates only. <a href="./privacy.html">Privacy</a>
+          </p>
         </div>
-      </section>
-
-      <section id="renters" class="story-section renter-section" aria-labelledby="renter-title">
-        <div class="renter-copy section-heading">
-          <p class="eyebrow">For renters</p><h2 id="renter-title">Need compute?<br />Just run a job.</h2><p>You’re not renting someone’s computer. You’re sending a supported workload to Offtime.</p>
-          <div class="renter-sequence" aria-label="Steps to run a workload"><span>Choose workload</span><i></i><span>Upload input</span><i></i><span>Set requirements</span><i></i><span>See price</span><i></i><span>Run</span><i></i><span>Get result</span></div>
-        </div>
-        <div class="job-window product-panel" aria-label="Example workload submission">
-          <div class="panel-topline"><strong>New job</strong><span>Offtime.</span></div>
-          <div class="job-field"><span>Workload</span><strong>Transcription</strong></div>
-          <div class="job-field"><span>Audio</span><strong class="file-value">example.wav <small>42 MB</small></strong></div>
-          <div class="job-estimate"><div><small>Estimated cost</small><strong>$0.42</strong></div><div><small>Estimated time</small><strong>~12 min</strong></div></div>
-          <span class="mock-button mock-button--dark">Run job</span>
-        </div>
-      </section>
-
-      <section class="story-section system-section" aria-labelledby="system-title">
-        <div class="section-heading section-heading--center"><p class="eyebrow">Behind the scenes</p><h2 id="system-title">Offtime does the hard part.</h2><p>Offtime matches each job with a Mac that meets the workload’s requirements.</p></div>
-        <div class="system-flow" aria-label="A renter sends a job through Offtime to an available Mac and receives the result"><span>Renter</span><i></i><span>Job</span><i></i><strong>Offtime.</strong><i></i><span>Best available Mac</span><i></i><span>Result</span></div>
-        <div class="retry-story">
-          <div class="retry-copy"><h3>Built for real life.</h3><p>Provider Macs can go offline. Supported jobs are designed to retry or resume from a checkpoint when possible—without pretending every interruption can disappear.</p></div>
-          <div class="retry-visual" aria-label="A job retries on another Mac after the first becomes unavailable"><div><span>Mac A</span><strong class="unavailable">Unavailable</strong></div><span class="retry-arrow">Automatically retry <b aria-hidden="true">→</b></span><div><span>Mac B</span><strong class="complete">Completes job</strong></div></div>
-        </div>
-      </section>
-
-      <section class="return-section" aria-labelledby="return-title">
-        <div class="return-copy section-heading"><p class="eyebrow">Owner priority</p><h2 id="return-title">Need your Mac back?<br />Just use it.</h2><p>No negotiation with a renter. No waiting for permission. Your computer always wins.</p></div>
-        <div class="return-timeline">
-          <article><time>2:03 AM</time><div class="return-screen"><span><i class="status-dot"></i> Working</span><strong>$3.42 tonight</strong></div></article>
-          <span class="return-line" aria-hidden="true"></span>
-          <article><time>7:18 AM</time><div class="return-screen"><span>Owner returns</span><strong>You’re back.<br />Stopping compute…</strong><small>Sharing paused.</small></div></article>
-        </div>
-        <p class="return-note">Offtime stops or drains the current workload. Supported jobs can retry or resume from checkpoints when needed; workloads do not magically move live between Macs.</p>
-      </section>
-
-      <section class="story-section privacy-section" aria-labelledby="privacy-title">
-        <div class="section-heading section-heading--center"><p class="eyebrow">Security &amp; privacy</p><h2 id="privacy-title">Your Mac stays yours.</h2><p>People don’t get remote access to your Mac. Offtime runs supported workloads separately from your personal environment.</p></div>
-        <div class="privacy-compare">
-          <div><h3>What renters can use</h3><ul><li>Offtime compute</li><li>Approved workload environment</li><li>Allocated resources</li></ul></div>
-          <div><h3>What renters cannot use</h3><ul class="cannot"><li>Your files</li><li>Your desktop</li><li>Your browser</li><li>Your apps</li><li>Your Apple account</li><li>Your personal data</li></ul></div>
-        </div>
-        <p class="privacy-note">Offtime limits renters to supported workload environments. As with any software running on hardware, security depends on the safeguards and workload isolation Offtime implements; it is not a promise of absolute protection from every possible threat.</p>
-      </section>
-
-      <section class="why-section" aria-labelledby="why-title">
-        <div class="section-heading section-heading--center"><p class="eyebrow">A better use of what’s already here</p><h2 id="why-title">Why let compute sit idle?</h2></div>
-        <div class="why-paths">
-          <article><span>Traditional</span><p>Own expensive hardware</p><i></i><p>Leave it idle</p><i></i><strong>Earn nothing</strong></article>
-          <article><span>Cloud</span><p>Need compute</p><i></i><p>Provision infrastructure</p><i></i><strong>Pay for capacity</strong></article>
-          <article class="why-paths__offtime"><span>Offtime</span><p>Use your Mac normally</p><i></i><p>Share idle capacity</p><i></i><strong>Get paid for usage</strong></article>
-          <article class="why-paths__offtime"><span>Offtime</span><p>Submit a supported job</p><i></i><p>Use available capacity</p><i></i><strong>Pay for what you use</strong></article>
-        </div>
-      </section>
-
-      <section class="final-cta" aria-labelledby="final-title">
-        <div class="final-glow" aria-hidden="true"></div>
-        <h2 id="final-title">Your Mac is doing nothing.<br />It could be earning.</h2>
-        <a class="start-button" href="./index.html#waitlist">Join the waitlist <span aria-hidden="true">→</span></a>
       </section>
     </main>
 
     <footer class="how-footer">
-      <a class="how-footer__logo" href="./index.html">Offtime.</a>
-      <nav aria-label="Footer"><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms of Service</a><a href="./how-it-works.html" aria-current="page">How it works?</a></nav>
-      <p><span class="status-dot" aria-hidden="true"></span>Network online</p>
+      <p>Offtime.</p>
     </footer>
   </body>
 </html>
