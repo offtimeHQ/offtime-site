@@ -719,7 +719,7 @@ main {
   .site-footer {
     position: relative;
     isolation: auto;
-    margin-top: clamp(-4rem, -10vw, -2.5rem);
+    margin-top: clamp(-5rem, -13vw, -3.25rem);
     padding: 0;
     font-size: 0.7rem;
     line-height: 1.35;
@@ -857,7 +857,7 @@ main {
   }
 
   .product--macbook .earning-rate {
-    transform: translateY(0.15rem);
+    transform: translateY(0.65rem);
   }
 
   .product--macmini .earning-rate {
