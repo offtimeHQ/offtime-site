@@ -14,8 +14,8 @@ to the Supabase project used by the control plane. It creates:
   keep this table synchronized when an entry is inserted, removed, or changes interest.
 
 Both tables have row-level security enabled and deliberately expose no policies to `anon` or
-`authenticated`. Only the control plane's `service_role` and Supabase administrators can access
-them. Never put the service-role key in this website or any other browser bundle.
+`authenticated`. Only a server-side Supabase secret (`service_role` database role) and Supabase
+administrators can access them. Never put the secret key in a browser bundle.
 
 ## HTTP endpoint
 
@@ -44,10 +44,10 @@ Server behavior:
 7. Allow CORS only from the exact `OFFTIME_WEBSITE_ORIGIN`; handle `OPTIONS`, and allow `POST` plus
    the `Content-Type` header. Never use `*` in production.
 
-The function talks to Supabase with `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`. Keep both in
-Vercel's server-side environment; never prefix the service-role key with `NEXT_PUBLIC_` or include
-it in a browser bundle. For a separate frontend origin, set `OFFTIME_WEBSITE_ORIGIN` to its exact
-HTTPS origin.
+The function talks to Supabase with `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`. Despite the
+legacy variable name, use a modern `sb_secret_...` value. Keep it in Vercel's server-side
+environment; never prefix it with `NEXT_PUBLIC_` or include it in a browser bundle. For a separate
+frontend origin, set `OFFTIME_WEBSITE_ORIGIN` to its exact HTTPS origin.
 
 ## Operations
 

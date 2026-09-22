@@ -1,8 +1,8 @@
 # Offtime website
 
-Static website deployed on Vercel. Browser account creation/sign-in is at `/auth/`; account and
-waitlist data remain in the Offtime control plane's PostgreSQL database, never in this repository or
-the browser bundle.
+Static website deployed on Vercel. Browser account creation/sign-in is at `/auth/`. Supabase Auth
+owns email/password credentials; Offtime account profiles and waitlist data remain in PostgreSQL.
+No credential or private database key belongs in this repository or the browser bundle.
 
 ## Local checks
 
