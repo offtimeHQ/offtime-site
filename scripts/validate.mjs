@@ -5,13 +5,18 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const htmlFiles = ["index.html", "how-it-works.html", "privacy.html", "terms.html", "earn/index.html", "compute/index.html", "auth/index.html"];
 const cssFiles = ["styles.css", "how-it-works.css", "earn/earn.css", "compute/compute.css", "auth/auth.css"];
+const analyticsScript = '<script src="/_vercel/insights/script.js" defer></script>';
 const errors = [];
 
 for (const file of htmlFiles) {
   const source = await readFile(path.join(root, file), "utf8");
+  const analyticsScriptCount = source.split(analyticsScript).length - 1;
+  if (analyticsScriptCount !== 1) {
+    errors.push(`${file}: expected one Vercel Web Analytics script, found ${analyticsScriptCount}`);
+  }
   for (const match of source.matchAll(/(?:href|src)="([^"]+)"/g)) {
     const link = match[1];
-    if (/^(?:https?:|mailto:|tel:|#)/.test(link)) continue;
+    if (/^(?:https?:|mailto:|tel:|#|\/_vercel\/)/.test(link)) continue;
     const cleanPath = link.split(/[?#]/)[0];
     if (!cleanPath) continue;
     const target = cleanPath.startsWith("/")

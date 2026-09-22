@@ -20,6 +20,9 @@ the app with `OFFTIME_WEBSITE_URL=http://127.0.0.1:4173` in development mode.
 
 ## Production
 
+Enable Web Analytics for the project in the Vercel dashboard. Every page loads Vercel's
+first-party analytics script; page views begin appearing after the next production deployment.
+
 Set these Vercel environment variables:
 
 - `OFFTIME_API_URL=https://<control-plane-host>` (required to enable browser authentication; the
