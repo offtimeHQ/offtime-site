@@ -4,31 +4,22 @@ Waitlist emails should live in the existing control plane's PostgreSQL databaseâ
 JavaScript, Git, Vercel static files, logs, or a personal inbox. This keeps one authoritative,
 access-controlled list next to the rest of Offtime's server-side data.
 
-## PostgreSQL table
+## Supabase tables
 
-Apply an equivalent migration in the control-plane repository:
+Apply [`supabase/migrations/20260921000000_create_waitlist_statistics.sql`](../supabase/migrations/20260921000000_create_waitlist_statistics.sql)
+to the Supabase project used by the control plane. It creates:
 
-```sql
-CREATE TYPE waitlist_interest AS ENUM ('earning', 'compute');
+- `waitlist_entries`, the unique, authoritative list containing email addresses and interests.
+- `waitlist_daily_statistics`, aggregate counts grouped by UTC signup date and interest. Triggers
+  keep this table synchronized when an entry is inserted, removed, or changes interest.
 
-CREATE TABLE waitlist_entries (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  email TEXT NOT NULL,
-  interest waitlist_interest NOT NULL,
-  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-  source TEXT NOT NULL DEFAULT 'website',
-  CONSTRAINT waitlist_email_normalized CHECK (email = lower(trim(email))),
-  CONSTRAINT waitlist_email_length CHECK (char_length(email) BETWEEN 3 AND 254)
-);
-
-CREATE UNIQUE INDEX waitlist_entries_email_unique ON waitlist_entries (email);
-CREATE INDEX waitlist_entries_interest_created_idx ON waitlist_entries (interest, created_at);
-```
+Both tables have row-level security enabled and deliberately expose no policies to `anon` or
+`authenticated`. Only the control plane's `service_role` and Supabase administrators can access
+them. Never put the service-role key in this website or any other browser bundle.
 
 ## HTTP endpoint
 
-Implement `POST /v1/waitlist` in the control plane. It receives:
+The Vercel function at `api/v1/waitlist.js` implements `POST /v1/waitlist`. It receives:
 
 ```json
 { "email": "person@example.com", "interest": "earning", "website": "" }
@@ -39,7 +30,7 @@ Server behavior:
 1. Require `Content-Type: application/json` and cap the body size (for example, 2 KB).
 2. Reject a non-empty `website` honeypot without writing a row.
 3. Trim and lowercase the email, validate it, and accept only `earning` or `compute`.
-4. Rate-limit by IP and normalized email. Do not store raw IP addresses in the waitlist table.
+4. Rate-limit by HMAC-hashed IP and normalized email. Raw IP addresses are never stored.
 5. Upsert on email so repeat signup updates the interest and `updated_at`:
 
    ```sql
@@ -53,12 +44,16 @@ Server behavior:
 7. Allow CORS only from the exact `OFFTIME_WEBSITE_ORIGIN`; handle `OPTIONS`, and allow `POST` plus
    the `Content-Type` header. Never use `*` in production.
 
-Use parameterized queries and the control plane's existing database pool. Keep database credentials
-only in that backend's environment. Restrict table access to the API service role and administrators.
+The function talks to Supabase with `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`. Keep both in
+Vercel's server-side environment; never prefix the service-role key with `NEXT_PUBLIC_` or include
+it in a browser bundle. For a separate frontend origin, set `OFFTIME_WEBSITE_ORIGIN` to its exact
+HTTPS origin.
 
 ## Operations
 
 - View totals grouped by demand: `SELECT interest, count(*) FROM waitlist_entries GROUP BY interest;`
+- View the daily time series without querying emails:
+  `SELECT * FROM waitlist_daily_statistics ORDER BY statistic_date, interest;`
 - Export only from an authenticated admin job or database console. Never add a public list endpoint.
 - Add unsubscribe/suppression handling before sending marketing email, and use a transactional email
   provider rather than sending directly from the request handler.

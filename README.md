@@ -36,5 +36,8 @@ do not use a wildcard CORS origin. Run `npm run build`; deploy only the generate
 
 The landing page sends `POST /v1/waitlist` to `OFFTIME_API_URL`. The endpoint and recommended
 PostgreSQL schema, validation, rate limits, and export workflow are documented in
-[`docs/waitlist-backend.md`](docs/waitlist-backend.md). The static website cannot store submissions
-by itself; this endpoint must be deployed in the existing control plane before signups are accepted.
+[`docs/waitlist-backend.md`](docs/waitlist-backend.md). The deployable Supabase migration is in
+[`supabase/migrations`](supabase/migrations). The static website cannot store submissions
+by itself; the Vercel deployment must provide server-only `SUPABASE_URL` and
+`SUPABASE_SERVICE_ROLE_KEY` environment variables before signups are accepted. When the API is on
+the same Vercel deployment, `OFFTIME_API_URL` can be omitted.

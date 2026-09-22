@@ -2,7 +2,7 @@
   "use strict";
 
   const config = window.OFFTIME_LANDING_CONFIG || {};
-  const apiUrl = (config.apiUrl || "").replace(/\/$/, "");
+  const apiUrl = (config.apiUrl || window.location.origin).replace(/\/$/, "");
   const configuredEnd = Date.parse(config.waitlistEndAt || "");
   const endAt = Number.isNaN(configuredEnd) ? Date.now() + 5 * 24 * 60 * 60 * 1000 : configuredEnd;
   const countdown = document.querySelector("[data-countdown]");
@@ -40,12 +40,6 @@
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     if (!form.reportValidity()) return;
-    if (!apiUrl) {
-      status.className = "waitlist__status waitlist__status--error";
-      status.textContent = "The waitlist is temporarily unavailable. Please try again soon.";
-      return;
-    }
-
     const data = new FormData(form);
     isSubmitting = true;
     syncSubmitState();
